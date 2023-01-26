@@ -1,3 +1,3 @@
 # Reparameterization
 
-Offocial repo for
+Official repo for
