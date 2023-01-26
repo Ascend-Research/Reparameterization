@@ -1,0 +1,11 @@
+#!/bin/bash
+CUDA_VISIBLE_DEVICES=1 python tools/train.py -c configs/strategies/DyRep/wei_cifar.yaml --model wei_inceptionresnetv2 --dataset cifar100 --data-path ~/datasets --experiment cifar100_wei_inceptionresnetv2_baseline_0 --seed 0 --dist-port 29511 &
+CUDA_VISIBLE_DEVICES=3 python tools/train.py -c configs/strategies/DyRep/wei_cifar.yaml --model wei_inceptionresnetv2 --dataset cifar100 --data-path ~/datasets --experiment cifar100_wei_inceptionresnetv2_baseline_1 --seed 1 --dist-port 20321 &
+CUDA_VISIBLE_DEVICES=5 python tools/train.py -c configs/strategies/DyRep/wei_cifar.yaml --model wei_inceptionresnetv2 --dataset cifar100 --data-path ~/datasets --experiment cifar100_wei_inceptionresnetv2_baseline_2 --seed 2 --dist-port 20331 &
+CUDA_VISIBLE_DEVICES=6 python tools/train.py -c configs/strategies/DyRep/wei_cifar.yaml --model wei_inceptionresnetv2 --dataset cifar100 --data-path ~/datasets --experiment cifar100_wei_inceptionresnetv2_baseline_3 --seed 3 --dist-port 20341 &
+wait
+CUDA_VISIBLE_DEVICES=1 python tools/train.py -c configs/strategies/DyRep/wei_cifar.yaml --model wei_inceptionresnetv2 --dataset cifar100 --data-path ~/datasets --experiment cifar100_wei_inceptionresnetv2_nmi5_0 --seed 0 --gram --c_type nmi5 --c_train_batches 2 --dist-port 29551 &
+CUDA_VISIBLE_DEVICES=3 python tools/train.py -c configs/strategies/DyRep/wei_cifar.yaml --model wei_inceptionresnetv2 --dataset cifar100 --data-path ~/datasets --experiment cifar100_wei_inceptionresnetv2_nmi5_1 --seed 1 --gram --c_type nmi5 --c_train_batches 2 --dist-port 20361 &
+CUDA_VISIBLE_DEVICES=5 python tools/train.py -c configs/strategies/DyRep/wei_cifar.yaml --model wei_inceptionresnetv2 --dataset cifar100 --data-path ~/datasets --experiment cifar100_wei_inceptionresnetv2_nmi5_2 --seed 2 --gram --c_type nmi5 --c_train_batches 2 --dist-port 20371 &
+CUDA_VISIBLE_DEVICES=6 python tools/train.py -c configs/strategies/DyRep/wei_cifar.yaml --model wei_inceptionresnetv2 --dataset cifar100 --data-path ~/datasets --experiment cifar100_wei_inceptionresnetv2_nmi5_3 --seed 3 --gram --c_type nmi5 --c_train_batches 2 --dist-port 20381 &
+wait
